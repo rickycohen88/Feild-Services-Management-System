@@ -56,11 +56,8 @@ module.exports = {
       .then((account) => {
         if (account === null) {
           async function makeUser() {
-            req.body.plaintextpw = req.body.password;
             let phash = await bcrypt.hash(req.body.password, 11);
-            console.log(phash);
             req.body.password = phash;
-            console.log(req.body);
             userModel
               .create(req.body)
               .then((dbModel) => {

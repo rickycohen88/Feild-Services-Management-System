@@ -21,19 +21,14 @@ const userSchema = new Schema({
   consumables: [{ type: Schema.Types.ObjectId, ref: "Consumables" }],
 });
 
-userSchema.statics.comparePassword = async function (
-  enteredPassword,
-  enteredEmail
-) {
+userSchema.statics.comparePassword = async function (enteredPassword,enteredEmail) {
   try {
     const res = await User.findOne({ email: enteredEmail });
-    let compareAccount = bcrypt.compare(
-      enteredPassword,
-      res.password,
-      function (err, result) {
+    let compareAccount = bcrypt.compare(enteredPassword,res.password,function (err, result) {
         if (result == true) {
           return result;
         } else {
+          
           return err;
         }
       }

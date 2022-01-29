@@ -15,12 +15,8 @@ function Login(props) {
     
     function handleLoginSubmit(e) {
       e.preventDefault();
-      console.log("inside submit");
-      console.log(email&&password);
         dataRequest.get('/user/login',{email:email,password:password})
         .then((res)=>{
-          console.log("----")
-          console.log(res);
           // use props.setUser to push up user credentials
           setEmail("");
           setPassword("");

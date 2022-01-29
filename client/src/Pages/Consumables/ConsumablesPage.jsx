@@ -14,7 +14,7 @@ function ConsumablesPage (){
         <Table>
             <thead>
                 <tr>
-                    {Array.from(Consumables).map((value,index)=>)}
+                    {Array.from(Consumables).map((value,index)=>{})}
                 </tr>
             </thead>
 
